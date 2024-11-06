@@ -1,0 +1,41 @@
+<div>
+    <h1>Forms Binding</h1>
+    <h2>{{mensaje}}</h2>
+    <!-- EL FORMULARIO DEBE TENER UN ID DE ANGULAR IGUALADO A ngForm -->
+     <form #userForm="ngForm" (ngSubmit)="recibirDatos()">
+        
+        <!-- LOS CONTROLES DE FORMULARIO DEBEN TENER UN ID DE ANGULAR COMO VALOR
+         ngModel  -->
+
+         <!-- PARA INDICAR EL MODEL BINDING DEBEMOS HACERLO CON LA SIGUIENTE SINTAXIS:
+          [(ngModel)]="mi modelo" -->
+          <label>Nombre: </label>
+          <input type="text" name="cajanombre" required
+          #cajanombre="ngModel"
+          [(ngModel)]="user.nombre">
+          <span style="color: red;"
+          *ngIf="cajanombre.valid == false && cajanombre.touched">* El nombre es obligatorio</span><br>
+          
+          <label>Apellidos: </label>
+          <input type="text" name="cajaapellidos"
+          #cajaapellidos="ngModel"
+          [(ngModel)]="user.apellidos"/><br>
+
+          <label>Edad: </label>
+          <input type="number" name="cajaedad"
+          #cajaedad="ngModel"
+          [(ngModel)]="user.edad"/>
+
+          <button [disabled]="!userForm.valid">
+            Enviar Datos
+          </button>
+
+     </form>
+
+     <hr>
+     <h2 style="color: blue;">
+        Nombre: {{user.nombre}} <br>
+        Apellidos: {{user.apellidos}}<br>
+        Edad: {{user.edad}}
+     </h2>
+</div>

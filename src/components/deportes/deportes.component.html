@@ -1,0 +1,43 @@
+<div>
+    <h1>DIRECTIVAS ANGULAR</h1>
+    <h2>Numero de deportes: {{sports.length}}</h2>
+    <!-- DIRECTIVA IF -->
+     <div *ngIf="sports.length < 6; then condiciontrue; else condicionelse">
+     </div>
+
+     <!-- else if -->
+      <ng-template #condiciontrue>
+        <p style="color: red;">
+            Tienes menos de 6 deportes
+        </p>
+      </ng-template>
+
+
+     <!-- plantilla condicion else -->
+      <ng-template #condicionelse>
+        <p style="color: blue">
+            Tenemos mas de 6 deportes!!!
+        </p>
+      </ng-template>
+
+     <p>El primer deporte es: {{ sports[0] }}</p>
+     
+     <ul>
+        <li *ngFor="let deporte of sports; let i = index">
+            {{i}}- Deporte: {{deporte}}
+        </li>
+     </ul>
+
+     <!-- _____________EJEMPLO DE NUMEROS_____________ -->
+      <hr>
+      <h1>EJEMPLO NUMEROS</h1>
+      <ul>
+        <li *ngFor="let num of numeros, let i = index"
+        [ngClass]="{
+          par: num % 2 == 0,
+          impar: num % 2 == 1
+        }" >
+            {{ num }}
+        </li>
+      </ul>
+</div>

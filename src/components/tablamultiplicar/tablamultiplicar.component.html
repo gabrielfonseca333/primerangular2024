@@ -1,0 +1,33 @@
+<div >
+    
+    <div style="text-align: center;" class=" col-6 mx-auto">
+        <h1 class="mb-4">Tabla Multiplicar</h1>
+        <form #tablaMultiplicarForm="ngForm">
+            <input type="number" placeholder="Introduce un numero" name="cajanumero" #cajanumero class="form-control"/><br>
+            <button class="btn btn-primary" (click)="rellenarTabla()" >Mostrar Tabla</button>
+        </form>
+    </div>
+
+    <br>
+
+ 
+     <div class="card col-10 mx-auto" style="text-align: center;">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Operacion</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tab of tablaMultiplicar">
+                    <td>{{tab.operacion}}</td>
+                    <td>{{tab.resultado}}</td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
+</div> 
+
+
+  
